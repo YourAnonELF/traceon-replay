@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="no-referrer">
+<title>Traceon Studio</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/static/styles.css">
+<script src="/static/theme.js"></script>
+<script type="module" src="/static/app.js"></script>
+</head>
+<body>
+<div class="app" id="app">
+  <header class="topbar">
+    <a class="brand" href="#/" aria-label="Traceon Studio home">
+      <svg class="brand-logo" viewBox="0 3 142 22" width="116" height="18" aria-hidden="true" focusable="false">
+        <g transform="scale(1.3333)">
+          <path class="mark-base" d="M3 9H21" fill="none" stroke-width="2.5" stroke-linecap="square"/>
+          <path class="mark-div" d="M9.5 9L14.5 16H21" fill="none" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"/>
+          <rect class="mark-point" x="7.25" y="6.75" width="4.5" height="4.5"/>
+        </g>
+        <path class="wordmark" transform="translate(42 -1)" d="M3.7 5V18.8A4 4 0 0 0 7.7 22.8H8.7 M0 11.2H8.7 M12.5 24V10 M12.5 16.2A5 5 0 0 1 17.5 11.2H19.1 M28.5 11.2A5.8 5.8 0 1 0 28.5 22.8A5.8 5.8 0 1 0 28.5 11.2Z M34.3 10V24 M49.6 12.9A5.8 5.8 0 1 0 49.6 21.1 M54.6 17H66.2A5.8 5.8 0 1 0 64.5 21.1 M77.4 11.2A5.8 5.8 0 1 0 77.4 22.8A5.8 5.8 0 1 0 77.4 11.2Z M88.6 24V10 M88.6 16.2A5 5 0 0 1 98.6 16.2V24" fill="none" stroke-width="2.4" stroke-linecap="butt" stroke-linejoin="miter"/>
+      </svg>
+      <span class="brand-sub">studio</span>
+    </a>
+    <div class="modes" role="tablist" aria-label="View">
+      <button type="button" role="tab" id="tab-trace" aria-selected="true">Trace</button>
+      <button type="button" role="tab" id="tab-diff" aria-selected="false">Diff <kbd>d</kbd></button>
+    </div>
+    <div class="topbar-fill"></div>
+    <span class="topbar-hint" id="kbd-hint"><kbd>j</kbd><kbd>k</kbd> move <kbd>&larr;</kbd><kbd>&rarr;</kbd> fold <kbd>/</kbd> filter <kbd>Space</kbd> replay <kbd>Esc</kbd> clear</span>
+    <button type="button" class="btn" id="theme-toggle" title="Theme: follows the system setting. Click to switch.">Auto</button>
+  </header>
+
+  <aside class="sidebar" aria-label="Fixtures">
+    <div class="sidebar-head">
+      <input id="filter" type="search" placeholder="Filter fixtures" aria-label="Filter fixtures" spellcheck="false" autocomplete="off">
+      <kbd class="filter-key" aria-hidden="true">/</kbd>
+    </div>
+    <div id="fixture-list" class="fixture-list" role="listbox" aria-label="Loaded fixtures" tabindex="0"></div>
+    <div class="sidebar-foot" id="sidebar-foot"></div>
+  </aside>
+
+  <main class="main" id="main" aria-live="polite">
+    <p class="empty">Loading fixtures.</p>
+  </main>
+
+  <div class="splitter" id="splitter" role="separator" aria-orientation="vertical" aria-label="Resize detail pane" aria-valuemin="280" aria-valuemax="900" aria-valuenow="420" tabindex="0"></div>
+
+  <aside class="detail" id="detail" aria-label="Details"></aside>
+</div>
+</body>
+</html>

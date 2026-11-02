@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+<title>Traceon Replay: deterministic replay for AI agents</title>
+<rect width="1280" height="640" fill="#121315"/>
+<g transform="translate(80 72) scale(2.25)">
+<g transform="scale(1.3333)"><path d="M3 9H21" fill="none" stroke="#E3E3E0" stroke-width="2.5" stroke-linecap="square"/><path d="M9.5 9L14.5 16H21" fill="none" stroke="#E89242" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"/><rect x="7.25" y="6.75" width="4.5" height="4.5" fill="#E89242"/></g>
+<path transform="translate(42 -1)" d="M3.7 5V18.8A4 4 0 0 0 7.7 22.8H8.7 M0 11.2H8.7 M12.5 24V10 M12.5 16.2A5 5 0 0 1 17.5 11.2H19.1 M28.5 11.2A5.8 5.8 0 1 0 28.5 22.8A5.8 5.8 0 1 0 28.5 11.2Z M34.3 10V24 M49.6 12.9A5.8 5.8 0 1 0 49.6 21.1 M54.6 17H66.2A5.8 5.8 0 1 0 64.5 21.1 M77.4 11.2A5.8 5.8 0 1 0 77.4 22.8A5.8 5.8 0 1 0 77.4 11.2Z M88.6 24V10 M88.6 16.2A5 5 0 0 1 98.6 16.2V24" fill="none" stroke="#E3E3E0" stroke-width="2.4" stroke-linecap="butt" stroke-linejoin="miter"/>
+</g>
+<text x="80" y="232" fill="#E3E3E0" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="50" font-weight="600">Deterministic replay for AI agents</text>
+<text x="80" y="278" fill="#A3A6AC" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="24">Record a run once. Replay it offline. See the first call that changed.</text>
+<rect x="80" y="316" width="1120" height="212" fill="#18191C" stroke="#2B2D31"/>
+<line x1="380" y1="316" x2="380" y2="528" stroke="#2B2D31"/>
+<line x1="482.5" y1="316" x2="482.5" y2="528" stroke="#222428"/>
+<line x1="585" y1="316" x2="585" y2="528" stroke="#222428"/>
+<line x1="687.5" y1="316" x2="687.5" y2="528" stroke="#222428"/>
+<line x1="790" y1="316" x2="790" y2="528" stroke="#222428"/>
+<line x1="892.5" y1="316" x2="892.5" y2="528" stroke="#222428"/>
+<line x1="995" y1="316" x2="995" y2="528" stroke="#222428"/>
+<line x1="1097.5" y1="316" x2="1097.5" y2="528" stroke="#222428"/>
+<text x="386" y="335" fill="#8D9097" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13">0 s</text>
+<text x="488.5" y="335" fill="#8D9097" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13">1.5 s</text>
+<text x="591" y="335" fill="#8D9097" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13">3 s</text>
+<text x="693.5" y="335" fill="#8D9097" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13">4.5 s</text>
+<text x="796" y="335" fill="#8D9097" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13">6 s</text>
+<text x="898.5" y="335" fill="#8D9097" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13">7.5 s</text>
+<text x="1001" y="335" fill="#8D9097" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13">9 s</text>
+<text x="1103.5" y="335" fill="#8D9097" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13">10.5 s</text>
+<line x1="80" y1="344" x2="1200" y2="344" stroke="#2B2D31"/>
+<text x="94" y="364" fill="#8F939A" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14">span</text>
+<text x="150" y="364" fill="#A3A6AC" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="15">research-agent</text>
+<rect x="380" y="356" width="820" height="6" fill="#4A4D53"/>
+<text x="112" y="390" fill="#86A6DC" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14">model</text>
+<text x="168" y="390" fill="#E3E3E0" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="15">planner</text>
+<rect x="388.2" y="379" width="98.4" height="12" fill="#6A8DC9"/>
+<text x="112" y="416" fill="#55B2B8" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14">tool</text>
+<text x="168" y="416" fill="#E3E3E0" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="15">web_search</text>
+<rect x="486.6" y="405" width="41" height="12" fill="#3F9DA3"/>
+<text x="112" y="442" fill="#55B2B8" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14">tool</text>
+<text x="168" y="442" fill="#E3E3E0" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="15">fetch_url</text>
+<rect x="527.6" y="431" width="344.4" height="12" fill="#EC746A"/>
+<text x="112" y="468" fill="#55B2B8" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14">tool</text>
+<text x="168" y="468" fill="#E3E3E0" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="15">fetch_url</text>
+<rect x="872" y="457" width="24.6" height="12" fill="#3F9DA3"/>
+<text x="112" y="494" fill="#86A6DC" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14">model</text>
+<text x="168" y="494" fill="#E3E3E0" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="15">summarize</text>
+<rect x="904.8" y="483" width="139.4" height="12" fill="#6A8DC9"/>
+<text x="112" y="520" fill="#86A6DC" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14">model</text>
+<text x="168" y="520" fill="#E3E3E0" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="15">writer</text>
+<rect x="1052.4" y="509" width="114.8" height="12" fill="#6A8DC9"/>
+<line x1="486.6" y1="344" x2="486.6" y2="528" stroke="#E89242" stroke-width="2"/>
+<rect x="481.6" y="406" width="10" height="10" fill="#E89242"/>
+<text x="482.6" y="562" fill="#E89242" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="16">first divergence  tool:web_search  $.recency_days  30 → 365</text>
+<text x="80" y="600" fill="#A3A6AC" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="22">YourAnonELF/traceon-replay</text>
+<text x="1200" y="600" fill="#8D9097" font-family="ui-monospace, 'SF Mono', SFMono-Regular, 'Cascadia Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="18" text-anchor="end">Apache-2.0 · Python</text>
+</svg>

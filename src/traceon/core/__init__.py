@@ -1,0 +1,77 @@
+"""Core: schema, canonicalization, comparison, safe I/O and the runtime contract."""
+
+from traceon.core.canonical import call_key, canonical_json, canonicalize, content_hash
+from traceon.core.compare import ValueChange, diff_values, first_difference
+from traceon.core.errors import (
+    DivergenceError,
+    FixtureError,
+    NetworkBlockedError,
+    RecordedCallError,
+    ReplayError,
+    ResponseNotCapturedError,
+    TraceonError,
+    UnmatchedCallError,
+)
+from traceon.core.io import dump_fixture, load_fixture, parse_fixture, safe_join, save_fixture
+from traceon.core.limits import DEFAULT_LIMITS, Limits
+from traceon.core.runtime import CallSpec, Session, current_parent_id, current_session, push_parent
+from traceon.core.schema import (
+    CALL_KINDS,
+    SCHEMA_VERSION,
+    AlignedPair,
+    Cost,
+    DiffReport,
+    Divergence,
+    Environment,
+    ErrorInfo,
+    Event,
+    Fixture,
+    Payload,
+    RedactionInfo,
+    RunMetrics,
+    Usage,
+)
+
+__all__ = [
+    "CALL_KINDS",
+    "DEFAULT_LIMITS",
+    "SCHEMA_VERSION",
+    "AlignedPair",
+    "CallSpec",
+    "Cost",
+    "DiffReport",
+    "Divergence",
+    "DivergenceError",
+    "Environment",
+    "ErrorInfo",
+    "Event",
+    "Fixture",
+    "FixtureError",
+    "Limits",
+    "NetworkBlockedError",
+    "Payload",
+    "RecordedCallError",
+    "RedactionInfo",
+    "ReplayError",
+    "ResponseNotCapturedError",
+    "RunMetrics",
+    "Session",
+    "TraceonError",
+    "UnmatchedCallError",
+    "Usage",
+    "ValueChange",
+    "call_key",
+    "canonical_json",
+    "canonicalize",
+    "content_hash",
+    "current_parent_id",
+    "current_session",
+    "diff_values",
+    "dump_fixture",
+    "first_difference",
+    "load_fixture",
+    "parse_fixture",
+    "push_parent",
+    "safe_join",
+    "save_fixture",
+]

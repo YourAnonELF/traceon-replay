@@ -1,0 +1,404 @@
+{
+  "schema_version": "traceon.fixture/v1",
+  "fixture_id": "fx_9d7b7a5cf2a5",
+  "run_id": "run_564399d90664",
+  "name": "basic-research-agent",
+  "created_at": "2026-11-02T16:05:58.592035Z",
+  "source": "traceon",
+  "mode": "record",
+  "status": "ok",
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "traceon_version": "0.1.0",
+    "adapters": {}
+  },
+  "redaction": {
+    "policy_id": "default",
+    "rules": [
+      "sensitive_key",
+      "pem_private_key",
+      "jwt",
+      "anthropic_api_key",
+      "openai_api_key",
+      "github_token",
+      "slack_token",
+      "slack_webhook",
+      "stripe_key",
+      "google_api_key",
+      "aws_access_key_id",
+      "aws_secret_access_key",
+      "bearer_token",
+      "url_credentials",
+      "secret_assignment",
+      "credit_card"
+    ],
+    "fields_omitted": []
+  },
+  "input": {
+    "state": "captured",
+    "value": {
+      "question": "Why are agent failures hard to reproduce, and how does replay testing help?"
+    },
+    "sha256": "sha256:6f832e861fff4d6fa4b7a195a7c7b6ca51ee0d6236c2115f269104f05462bef4",
+    "truncated": false,
+    "size_bytes": 90,
+    "redacted_paths": []
+  },
+  "output": {
+    "state": "captured",
+    "value": {
+      "request_id": "666e5f31-e0df-4c88-a411-702f70fb9f5c",
+      "answered_at": "2026-11-02T16:05:58.593041+00:00",
+      "answer": "Agent runs depend on model sampling, tool results and wall-clock time, so a failure seen once in production is often impossible to reproduce locally. Record-and-replay testing captures the responses of external systems once and serves them from a cassette in later runs, which makes tests fast and deterministic.",
+      "sources": [
+        "doc-agents",
+        "doc-replay"
+      ]
+    },
+    "sha256": "sha256:114a5b529210413b25666fb1a60841f5166a0ed58e617ca26dfb30a9832920f7",
+    "truncated": false,
+    "size_bytes": 464,
+    "redacted_paths": []
+  },
+  "error": null,
+  "events": [
+    {
+      "event_id": "ev_7aca1cba9e79",
+      "parent_id": null,
+      "sequence": 0,
+      "kind": "span",
+      "name": "basic-research-agent",
+      "started_at": "2026-11-02T16:05:58.592286Z",
+      "ended_at": "2026-11-02T16:05:58.594052Z",
+      "duration_ms": 1.7655,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": null,
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_100b50c5fa02",
+      "parent_id": "ev_7aca1cba9e79",
+      "sequence": 1,
+      "kind": "value",
+      "name": "uuid4",
+      "started_at": "2026-11-02T16:05:58.592368Z",
+      "ended_at": "2026-11-02T16:05:58.592411Z",
+      "duration_ms": 0.0429,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:70870937802481cc67f5ad0c868c7b4a247a286009bcb1dce58f0ee2d3cadba1",
+      "request": {
+        "state": "captured",
+        "value": {},
+        "sha256": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "truncated": false,
+        "size_bytes": 2,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": "666e5f31-e0df-4c88-a411-702f70fb9f5c",
+        "sha256": "sha256:57edd5fabc70ea9f36d46c8feaf48d69a6ae144fddaa97e867cc5d4ec8aa9757",
+        "truncated": false,
+        "size_bytes": 38,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_99e8b9ca7fd3",
+      "parent_id": "ev_7aca1cba9e79",
+      "sequence": 2,
+      "kind": "value",
+      "name": "now",
+      "started_at": "2026-11-02T16:05:58.592489Z",
+      "ended_at": "2026-11-02T16:05:58.592593Z",
+      "duration_ms": 0.1042,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:5c581be5e1ed98deeb48e23e28ef1cb58582d55c891e7b622b7635eed509b3c1",
+      "request": {
+        "state": "captured",
+        "value": {},
+        "sha256": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "truncated": false,
+        "size_bytes": 2,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "$datetime": "2026-11-02T16:05:58.593041+00:00"
+        },
+        "sha256": "sha256:dfcfb3b347a6a99cee7c6fb78362c3e6e11433f9f2dd391d72c2c280d94de8b5",
+        "truncated": false,
+        "size_bytes": 48,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_2ba99ea112e8",
+      "parent_id": "ev_7aca1cba9e79",
+      "sequence": 3,
+      "kind": "span",
+      "name": "retrieve",
+      "started_at": "2026-11-02T16:05:58.592694Z",
+      "ended_at": "2026-11-02T16:05:58.593442Z",
+      "duration_ms": 0.7479,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": null,
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {
+        "question": "Why are agent failures hard to reproduce, and how does replay testing help?"
+      }
+    },
+    {
+      "event_id": "ev_7c15bc267526",
+      "parent_id": "ev_2ba99ea112e8",
+      "sequence": 4,
+      "kind": "tool",
+      "name": "search",
+      "started_at": "2026-11-02T16:05:58.592851Z",
+      "ended_at": "2026-11-02T16:05:58.593012Z",
+      "duration_ms": 0.1609,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:7b17aa6081f12bd4915af7047ad208207e50fe0861f08242f85488764e433abd",
+      "request": {
+        "state": "captured",
+        "value": {
+          "query": "Why are agent failures hard to reproduce, and how does replay testing help?",
+          "limit": 2
+        },
+        "sha256": "sha256:c88a7b9797cf8a6e79cd091b74ff5e3386fa7d9de3d88b5cdd3b1802a035b419",
+        "truncated": false,
+        "size_bytes": 97,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": [
+          {
+            "id": "doc-agents",
+            "title": "Why agent failures are hard to reproduce",
+            "score": 4
+          },
+          {
+            "id": "doc-replay",
+            "title": "Record and replay testing",
+            "score": 2
+          }
+        ],
+        "sha256": "sha256:6c37e19ed7a57aea2ed6d84c2fb1b1b237c3291c26aaf2c76e7ffbf53a0a0837",
+        "truncated": false,
+        "size_bytes": 148,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_e2f7b7ef5224",
+      "parent_id": "ev_2ba99ea112e8",
+      "sequence": 5,
+      "kind": "tool",
+      "name": "fetch_document",
+      "started_at": "2026-11-02T16:05:58.593109Z",
+      "ended_at": "2026-11-02T16:05:58.593228Z",
+      "duration_ms": 0.1192,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:c36e52d196eb35a5ee4f4ed923b7870c6a0f0c35afac0ecd95a5d89537e09e0b",
+      "request": {
+        "state": "captured",
+        "value": {
+          "doc_id": "doc-agents"
+        },
+        "sha256": "sha256:abe82743bfa2a9059d9f2894d865db2263b3d4e40821a372fb4aa977ee88a6b6",
+        "truncated": false,
+        "size_bytes": 23,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "id": "doc-agents",
+          "title": "Why agent failures are hard to reproduce",
+          "text": "Agent runs depend on model sampling, tool results and wall-clock time, so a failure seen once in production is often impossible to reproduce locally."
+        },
+        "sha256": "sha256:21728c1e26c99473c681030eec36b18a3ca1c68e9fd0241dbdec411bafd18232",
+        "truncated": false,
+        "size_bytes": 229,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_dde7864bcffb",
+      "parent_id": "ev_2ba99ea112e8",
+      "sequence": 6,
+      "kind": "tool",
+      "name": "fetch_document",
+      "started_at": "2026-11-02T16:05:58.593307Z",
+      "ended_at": "2026-11-02T16:05:58.593425Z",
+      "duration_ms": 0.1173,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:6ad6a0e3e32fadfe2b2d7ed34abd164035221616b65d21abbaee24f77277834c",
+      "request": {
+        "state": "captured",
+        "value": {
+          "doc_id": "doc-replay"
+        },
+        "sha256": "sha256:74f1dbc2d3b0f80edcfe6b60efc4cd71963df13b61c247cbc5f9f8e9373b14b6",
+        "truncated": false,
+        "size_bytes": 23,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "id": "doc-replay",
+          "title": "Record and replay testing",
+          "text": "Record-and-replay testing captures the responses of external systems once and serves them from a cassette in later runs, which makes tests fast and deterministic."
+        },
+        "sha256": "sha256:f33d5bb559c3cacd3bfd866682dd27fb3450d92675c11fadb5c4951aa8427933",
+        "truncated": false,
+        "size_bytes": 227,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_70aabb0f919d",
+      "parent_id": "ev_7aca1cba9e79",
+      "sequence": 7,
+      "kind": "span",
+      "name": "answer",
+      "started_at": "2026-11-02T16:05:58.593473Z",
+      "ended_at": "2026-11-02T16:05:58.594029Z",
+      "duration_ms": 0.5555,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": null,
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_bfe62291f498",
+      "parent_id": "ev_70aabb0f919d",
+      "sequence": 8,
+      "kind": "model",
+      "name": "summarize",
+      "started_at": "2026-11-02T16:05:58.593786Z",
+      "ended_at": "2026-11-02T16:05:58.594010Z",
+      "duration_ms": 0.2241,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:867e7c08fc438cd15ba1314f0456582c717ff24b9b4c1bdbf0b37dc98fee16f2",
+      "request": {
+        "state": "hash_only",
+        "value": null,
+        "sha256": "sha256:f2d8d6ad5b30a9e833381ea72561379ea930e0404d7b555d880d47e2f44595b8",
+        "truncated": false,
+        "size_bytes": 562,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "answer": "Agent runs depend on model sampling, tool results and wall-clock time, so a failure seen once in production is often impossible to reproduce locally. Record-and-replay testing captures the responses of external systems once and serves them from a cassette in later runs, which makes tests fast and deterministic.",
+          "sources": [
+            "doc-agents",
+            "doc-replay"
+          ],
+          "usage": {
+            "input_tokens": 61,
+            "output_tokens": 48
+          }
+        },
+        "sha256": "sha256:861d2954c41ea3d1c00f8ed3ed110038cf0e32575502695b381c77ad40e6133b",
+        "truncated": false,
+        "size_bytes": 410,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": {
+        "input_tokens": 61,
+        "output_tokens": 48,
+        "total_tokens": 109,
+        "cost": null
+      },
+      "attributes": {
+        "provider": "offline-demo"
+      }
+    }
+  ],
+  "metadata": {},
+  "warnings": []
+}

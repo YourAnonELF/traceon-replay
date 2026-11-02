@@ -1,0 +1,15 @@
+Traceon Replay
+Copyright 2026 The Traceon Replay contributors
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Design ideas were adapted from the following projects. No source code from
+them is included unless listed in a "Third-party code" section below.
+
+  vcrpy (https://github.com/kevin1024/vcrpy), MIT License
+    -- the record/replay cassette workflow.
+  langfuse-python (https://github.com/langfuse/langfuse-python), MIT License
+    -- the observe-decorator design and the trace/observation data model that
+       the Langfuse importer reads.
+  OpenTelemetry (https://opentelemetry.io), Apache License 2.0
+    -- span and trace concepts.

@@ -1,0 +1,62 @@
+name: Bug report
+description: Something does not work as documented.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. For security vulnerabilities, do **not** open an issue;
+        follow [SECURITY.md](https://github.com/YourAnonELF/traceon-replay/blob/main/SECURITY.md).
+
+        **Before attaching a fixture:** fixtures can contain prompts, tool arguments,
+        tool results and user data. Redaction removes common secret formats only.
+        Open the file, search for keys, tokens, emails and personal data, and remove
+        anything sensitive. `CapturePolicy.minimal()` or a hand-reduced fixture is
+        often enough to reproduce a problem.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: |
+        Minimal code and commands. If the problem involves a recording, attach the
+        reviewed fixture (drag the .json file here) or the output of
+        `traceon inspect fixture.json --events`.
+      render: python
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output
+      description: Full error output. Re-run CLI commands with `--debug` for a traceback.
+      render: text
+  - type: input
+    id: version
+    attributes:
+      label: Traceon version
+      description: Output of `traceon --version`.
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python version and OS
+      placeholder: e.g. Python 3.12.4 on Ubuntu 24.04
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I reviewed any attached fixture and removed secrets and personal data.
+          required: true
+        - label: I searched existing issues for this problem.
+          required: true

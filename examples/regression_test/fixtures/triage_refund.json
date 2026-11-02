@@ -1,0 +1,249 @@
+{
+  "schema_version": "traceon.fixture/v1",
+  "fixture_id": "fx_4c3540f794a8",
+  "run_id": "run_a81789a4a04e",
+  "name": "ticket-triage",
+  "created_at": "2026-11-02T16:07:16.265340Z",
+  "source": "traceon",
+  "mode": "record",
+  "status": "ok",
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "traceon_version": "0.1.0",
+    "adapters": {}
+  },
+  "redaction": {
+    "policy_id": "default",
+    "rules": [
+      "sensitive_key",
+      "pem_private_key",
+      "jwt",
+      "anthropic_api_key",
+      "openai_api_key",
+      "github_token",
+      "slack_token",
+      "slack_webhook",
+      "stripe_key",
+      "google_api_key",
+      "aws_access_key_id",
+      "aws_secret_access_key",
+      "bearer_token",
+      "url_credentials",
+      "secret_assignment",
+      "credit_card"
+    ],
+    "fields_omitted": []
+  },
+  "input": {
+    "state": "captured",
+    "value": {
+      "ticket_id": "T-311"
+    },
+    "sha256": "sha256:7ac7eae86d7b77fe59c9e616df96baba26bdf4c35766afbe9453dc27df5d1963",
+    "truncated": false,
+    "size_bytes": 21,
+    "redacted_paths": []
+  },
+  "output": {
+    "state": "captured",
+    "value": {
+      "ticket_id": "T-311",
+      "queue": "billing",
+      "priority": "high",
+      "status": "assigned"
+    },
+    "sha256": "sha256:f378700cda62f958f0dafd2f8a02a6c1b9e8b6dc267e114097258f78af90af70",
+    "truncated": false,
+    "size_bytes": 77,
+    "redacted_paths": []
+  },
+  "error": null,
+  "events": [
+    {
+      "event_id": "ev_e5c6f9677454",
+      "parent_id": null,
+      "sequence": 0,
+      "kind": "span",
+      "name": "ticket-triage",
+      "started_at": "2026-11-02T16:07:16.265564Z",
+      "ended_at": "2026-11-02T16:07:16.266524Z",
+      "duration_ms": 0.9604,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": null,
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_b16b155aca75",
+      "parent_id": "ev_e5c6f9677454",
+      "sequence": 1,
+      "kind": "span",
+      "name": "triage",
+      "started_at": "2026-11-02T16:07:16.265647Z",
+      "ended_at": "2026-11-02T16:07:16.266507Z",
+      "duration_ms": 0.8607,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": null,
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {
+        "ticket_id": "T-311"
+      }
+    },
+    {
+      "event_id": "ev_136dc403de26",
+      "parent_id": "ev_b16b155aca75",
+      "sequence": 2,
+      "kind": "tool",
+      "name": "fetch_ticket",
+      "started_at": "2026-11-02T16:07:16.265801Z",
+      "ended_at": "2026-11-02T16:07:16.265956Z",
+      "duration_ms": 0.1544,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:e5ee3b07b3d009b4b0a97872a4f51dc45eb42d11a2c5ceae1f472892fc0675bf",
+      "request": {
+        "state": "captured",
+        "value": {
+          "ticket_id": "T-311"
+        },
+        "sha256": "sha256:7ac7eae86d7b77fe59c9e616df96baba26bdf4c35766afbe9453dc27df5d1963",
+        "truncated": false,
+        "size_bytes": 21,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "id": "T-311",
+          "subject": "Charged twice for my October invoice",
+          "body": "Hi, my card was charged two times for invoice INV-2026-10-118. Please refund one.",
+          "customer_tier": "pro"
+        },
+        "sha256": "sha256:7bc4c893dd38178c137c2005574ba8cc31e380ce78ccae0e61e632368867bb28",
+        "truncated": false,
+        "size_bytes": 176,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_a10f047ac735",
+      "parent_id": "ev_b16b155aca75",
+      "sequence": 3,
+      "kind": "model",
+      "name": "classify",
+      "started_at": "2026-11-02T16:07:16.266189Z",
+      "ended_at": "2026-11-02T16:07:16.266296Z",
+      "duration_ms": 0.1071,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:da6355622bca0d62d04f0ba1c951bfbfb297fe4f3c6745f3cf7226e1fa410607",
+      "request": {
+        "state": "hash_only",
+        "value": null,
+        "sha256": "sha256:0ac595d9e56ae0726344d39b1c494a70a2ea34563786903d1a36b666649dfc6c",
+        "truncated": false,
+        "size_bytes": 141,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "queue": "billing",
+          "confidence": 0.93
+        },
+        "sha256": "sha256:d6bfdf02bd68e97d51f3b855a53723042a8480b86b3d6cab06b8d0f3f5a78ec2",
+        "truncated": false,
+        "size_bytes": 37,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {
+        "provider": "offline-demo"
+      }
+    },
+    {
+      "event_id": "ev_f3e94e9c85f1",
+      "parent_id": "ev_b16b155aca75",
+      "sequence": 4,
+      "kind": "tool",
+      "name": "assign_ticket",
+      "started_at": "2026-11-02T16:07:16.266411Z",
+      "ended_at": "2026-11-02T16:07:16.266490Z",
+      "duration_ms": 0.0796,
+      "status": "ok",
+      "side_effect": true,
+      "call_key": "sha256:40ce066bab75628559a73fca0f59ea0241e9d134bcf4f40f32acf2d6d37b2e75",
+      "request": {
+        "state": "captured",
+        "value": {
+          "ticket_id": "T-311",
+          "queue": "billing",
+          "priority": "high"
+        },
+        "sha256": "sha256:1da9f9df0873d6ec5b6ff3fb50c1b76766284ea88c190ba5f002dea5f579fa77",
+        "truncated": false,
+        "size_bytes": 57,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "ticket_id": "T-311",
+          "queue": "billing",
+          "priority": "high",
+          "status": "assigned"
+        },
+        "sha256": "sha256:f378700cda62f958f0dafd2f8a02a6c1b9e8b6dc267e114097258f78af90af70",
+        "truncated": false,
+        "size_bytes": 77,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    }
+  ],
+  "metadata": {},
+  "warnings": []
+}

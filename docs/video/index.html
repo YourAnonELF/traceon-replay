@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Traceon Replay launch film</title>
+<meta name="viewport" content="width=1920">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--
+  Traceon Replay launch film (1920 x 1080).
+  window.seek(t) renders the frame for time t seconds; render.py calls it for
+  every frame. Opened directly in a browser the film plays in a loop; append
+  ?t=12.5 to freeze a single frame, ?play=0 to start paused.
+-->
+<div id="stage"></div>
+<script src="scenes/lib.js"></script>
+<script src="scenes/timeline.js"></script>
+<script src="scenes/open.js"></script>
+<script src="scenes/system.js"></script>
+<script src="scenes/diverge.js"></script>
+<script src="scenes/ci.js"></script>
+<script src="scenes/end.js"></script>
+<script src="scenes/chrome.js"></script>
+<script>
+(function () {
+  "use strict";
+  const TV = window.TV;
+  const stage = document.getElementById("stage");
+  TV.scenes.forEach((s) => s.init(stage));
+
+  window.DURATION = TV.T.total;
+  window.seek = function (t) {
+    for (const s of TV.scenes) s.update(t);
+    // force layout so the screenshot sees the final state of this frame
+    void stage.offsetHeight;
+    return t;
+  };
+  window.ready = document.fonts.ready.then(() => { window.seek(0); return true; });
+
+  // Interactive preview only (render.py sets ?render=1 and drives seek itself).
+  const q = new URLSearchParams(location.search);
+  if (q.has("render")) return;
+  const fit = () => {
+    const k = Math.min(innerWidth / 1920, innerHeight / 1080);
+    stage.style.transformOrigin = "0 0";
+    stage.style.transform = `scale(${k})`;
+  };
+  addEventListener("resize", fit);
+  fit();
+  if (q.has("t")) { window.ready.then(() => window.seek(parseFloat(q.get("t")))); return; }
+  let t0 = null, paused = q.get("play") === "0", at = 0;
+  addEventListener("keydown", (e) => { if (e.code === "Space") { paused = !paused; t0 = null; } });
+  const tick = (now) => {
+    if (!paused) {
+      if (t0 === null) t0 = now - at * 1000;
+      at = ((now - t0) / 1000) % TV.T.total;
+      window.seek(at);
+    }
+    requestAnimationFrame(tick);
+  };
+  window.ready.then(() => requestAnimationFrame(tick));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONIOENCODING: utf-8
+
+jobs:
+  lint:
+    name: Lint and type check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - name: Install
+        run: uv sync --extra dev
+      - name: Ruff lint
+        run: uv run ruff check .
+      - name: Ruff format
+        run: uv run ruff format --check .
+      - name: Mypy (strict)
+        run: uv run mypy
+      - name: Fixture JSON Schema is up to date
+        run: uv run python scripts/gen_schema.py --check
+      - name: Committed fixtures are valid
+        run: uv run traceon validate examples/*/fixtures/*.json
+
+  test:
+    name: Test (${{ matrix.os }}, Python ${{ matrix.python }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ["3.10", "3.11", "3.12", "3.13"]
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: ${{ matrix.python }}
+          enable-cache: true
+      - name: Install
+        run: uv sync --extra dev
+      - name: Pytest
+        run: uv run pytest
+      - name: "Examples: replay committed fixtures"
+        run: |
+          uv run python examples/basic_agent/replay.py
+          uv run python examples/failed_tool_call/replay.py
+          uv run pytest examples/regression_test -p no:cacheprovider
+      - name: "Examples: record and replay again"
+        run: |
+          uv run python examples/basic_agent/record.py
+          uv run python examples/basic_agent/replay.py
+          uv run python examples/failed_tool_call/record.py
+          uv run python examples/failed_tool_call/replay.py
+      - name: "CLI smoke test"
+        working-directory: examples/basic_agent
+        run: |
+          uv run traceon --version
+          uv run traceon inspect fixtures/research_run.json
+          uv run traceon replay fixtures/research_run.json --entry agent:run_agent
+
+  build:
+    name: Build distributions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+      - name: Build sdist and wheel
+        run: uv build
+      - name: Install the wheel in a clean environment
+        run: |
+          uv venv /tmp/wheel-env
+          uv pip install --python /tmp/wheel-env/bin/python dist/*.whl
+          /tmp/wheel-env/bin/traceon --version
+          /tmp/wheel-env/bin/python -c "import traceon, traceon.pytest_plugin; print(traceon.__version__)"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/

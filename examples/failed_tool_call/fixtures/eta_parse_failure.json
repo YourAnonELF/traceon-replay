@@ -1,0 +1,276 @@
+{
+  "schema_version": "traceon.fixture/v1",
+  "fixture_id": "fx_c8fe43b27dfd",
+  "run_id": "run_653e49bf97d0",
+  "name": "order-status-agent",
+  "created_at": "2026-11-02T16:06:32.687528Z",
+  "source": "traceon",
+  "mode": "record",
+  "status": "error",
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "traceon_version": "0.1.0",
+    "adapters": {}
+  },
+  "redaction": {
+    "policy_id": "default",
+    "rules": [
+      "sensitive_key",
+      "pem_private_key",
+      "jwt",
+      "anthropic_api_key",
+      "openai_api_key",
+      "github_token",
+      "slack_token",
+      "slack_webhook",
+      "stripe_key",
+      "google_api_key",
+      "aws_access_key_id",
+      "aws_secret_access_key",
+      "bearer_token",
+      "url_credentials",
+      "secret_assignment",
+      "credit_card"
+    ],
+    "fields_omitted": []
+  },
+  "input": {
+    "state": "captured",
+    "value": {
+      "order_id": "A-1042"
+    },
+    "sha256": "sha256:b49debc5dbedc964b8ebdc1b8b24128da323e3ea6efd6b8376664850bbf961af",
+    "truncated": false,
+    "size_bytes": 21,
+    "redacted_paths": []
+  },
+  "output": {
+    "state": "not_captured",
+    "value": null,
+    "sha256": null,
+    "truncated": false,
+    "size_bytes": null,
+    "redacted_paths": []
+  },
+  "error": {
+    "type": "builtins.ValueError",
+    "message": "unconverted data remains: +01:00",
+    "stack": null
+  },
+  "events": [
+    {
+      "event_id": "ev_318a335d1397",
+      "parent_id": null,
+      "sequence": 0,
+      "kind": "span",
+      "name": "order-status-agent",
+      "started_at": "2026-11-02T16:06:32.687760Z",
+      "ended_at": "2026-11-02T16:06:32.706368Z",
+      "duration_ms": 18.6085,
+      "status": "error",
+      "side_effect": false,
+      "call_key": null,
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "error": {
+        "type": "builtins.ValueError",
+        "message": "unconverted data remains: +01:00",
+        "stack": null
+      },
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_5a9d9d969a74",
+      "parent_id": "ev_318a335d1397",
+      "sequence": 1,
+      "kind": "span",
+      "name": "gather",
+      "started_at": "2026-11-02T16:06:32.687797Z",
+      "ended_at": "2026-11-02T16:06:32.688286Z",
+      "duration_ms": 0.4895,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": null,
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_7e47f966329f",
+      "parent_id": "ev_5a9d9d969a74",
+      "sequence": 2,
+      "kind": "tool",
+      "name": "lookup_order",
+      "started_at": "2026-11-02T16:06:32.687989Z",
+      "ended_at": "2026-11-02T16:06:32.688085Z",
+      "duration_ms": 0.096,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:408ea4a34073afacb7244212660839a8100d48f02a58f466b50d3e199dfd0f6f",
+      "request": {
+        "state": "captured",
+        "value": {
+          "order_id": "A-1042"
+        },
+        "sha256": "sha256:b49debc5dbedc964b8ebdc1b8b24128da323e3ea6efd6b8376664850bbf961af",
+        "truncated": false,
+        "size_bytes": 21,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "order_id": "A-1042",
+          "carrier": "parcelnet",
+          "tracking_number": "PN-88341207"
+        },
+        "sha256": "sha256:ad885a287eda4f0f244313401434d1bfb585e6c87853c382127e5a4abf2bd338",
+        "truncated": false,
+        "size_bytes": 75,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_d2369d7b4254",
+      "parent_id": "ev_5a9d9d969a74",
+      "sequence": 3,
+      "kind": "tool",
+      "name": "track_shipment",
+      "started_at": "2026-11-02T16:06:32.688219Z",
+      "ended_at": "2026-11-02T16:06:32.688269Z",
+      "duration_ms": 0.05,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:2badf7364967c7f2c63e1f9bb8c5f4ea2724e85026111623e40a1f4d7c65bd92",
+      "request": {
+        "state": "captured",
+        "value": {
+          "carrier": "parcelnet",
+          "tracking_number": "PN-88341207"
+        },
+        "sha256": "sha256:6172d0da8819a98b827b606408ed2f5892e85b250117efdd46856c0121bc96fc",
+        "truncated": false,
+        "size_bytes": 55,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": "IN_TRANSIT;ETA=2026-11-05T14:00:00+01:00;LOC=Leipzig",
+        "sha256": "sha256:815c14ff141855443d980385864f6089d19e2bce9b5f22d2c1cdc51f5108082c",
+        "truncated": false,
+        "size_bytes": 54,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_2bdabfdb442f",
+      "parent_id": "ev_318a335d1397",
+      "sequence": 4,
+      "kind": "span",
+      "name": "respond",
+      "started_at": "2026-11-02T16:06:32.688318Z",
+      "ended_at": "2026-11-02T16:06:32.706297Z",
+      "duration_ms": 17.9783,
+      "status": "error",
+      "side_effect": false,
+      "call_key": null,
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "error": {
+        "type": "builtins.ValueError",
+        "message": "unconverted data remains: +01:00",
+        "stack": null
+      },
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_649754896480",
+      "parent_id": "ev_2bdabfdb442f",
+      "sequence": 5,
+      "kind": "model",
+      "name": "draft_reply",
+      "started_at": "2026-11-02T16:06:32.688453Z",
+      "ended_at": "2026-11-02T16:06:32.688545Z",
+      "duration_ms": 0.0929,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:b406e68f6cae1fdbf5bf7a7514eaf3fe72f2549f3bb16ce38c9cd1302176d020",
+      "request": {
+        "state": "hash_only",
+        "value": null,
+        "sha256": "sha256:71ef20da7195075bc912705de25573bc8893a5173d5db82bb938e405d0bc873a",
+        "truncated": false,
+        "size_bytes": 90,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": "Order A-1042 is on its way (last seen in Leipzig) and should arrive soon.",
+        "sha256": "sha256:d31bd007d46bbc5a03dd1df8d7c4657ed80575cb84374679235b891f5b5613f4",
+        "truncated": false,
+        "size_bytes": 75,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {
+        "provider": "offline-demo"
+      }
+    }
+  ],
+  "metadata": {},
+  "warnings": []
+}

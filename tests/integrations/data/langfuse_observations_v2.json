@@ -1,0 +1,41 @@
+{
+  "data": [
+    {
+      "id": "a1b2c3d4e5f60718",
+      "traceId": "0af7651916cd43dd8448eb211c80319c",
+      "startTime": "2026-10-30T16:01:10.000123456Z",
+      "endTime": "2026-10-30T16:01:10.950Z",
+      "projectId": "clx0p7c0a0000",
+      "parentObservationId": null,
+      "type": "CHAIN",
+      "name": "triage",
+      "level": "DEFAULT",
+      "isRootObservation": true,
+      "traceName": "ticket-triage",
+      "tags": ["prod"],
+      "release": "triage@2.0.0",
+      "input": {"ticket": "Cannot log in"},
+      "output": {"queue": "auth"}
+    },
+    {
+      "id": "b1b2c3d4e5f60718",
+      "traceId": "0af7651916cd43dd8448eb211c80319c",
+      "startTime": "2026-10-30T16:01:10.100Z",
+      "endTime": "2026-10-30T16:01:10.900Z",
+      "projectId": "clx0p7c0a0000",
+      "parentObservationId": "a1b2c3d4e5f60718",
+      "type": "GENERATION",
+      "name": "classify",
+      "level": "DEFAULT",
+      "isRootObservation": false,
+      "traceName": "ticket-triage",
+      "model": "claude-haiku-4-5",
+      "input": [{"role": "user", "content": "Cannot log in"}],
+      "output": {"content": "auth"},
+      "usageDetails": {"input": 52, "output": 3, "total": 55},
+      "costDetails": {"total": 0.000067},
+      "totalCost": 0.000067
+    }
+  ],
+  "meta": {"cursor": null}
+}

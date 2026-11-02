@@ -1,0 +1,1053 @@
+{
+  "schema_version": "traceon.fixture/v1",
+  "fixture_id": "fx_c3e88a1f6d20",
+  "run_id": "run_91d0b6e2c845",
+  "name": "research-agent (prompt v2)",
+  "created_at": "2026-11-01T16:20:11.120000Z",
+  "source": "traceon",
+  "mode": "record",
+  "status": "ok",
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Linux-6.8.0-x86_64",
+    "traceon_version": "0.1.0",
+    "adapters": {
+      "anthropic": "0.69.0"
+    }
+  },
+  "redaction": {
+    "policy_id": "default",
+    "rules": [
+      "key:api_key",
+      "key:authorization",
+      "email"
+    ],
+    "fields_omitted": [
+      "$.api_key",
+      "$.authorization",
+      "$.to"
+    ]
+  },
+  "input": {
+    "state": "captured",
+    "value": {
+      "question": "How do teams make LLM agent tests deterministic?"
+    },
+    "sha256": "sha256:2c1d89f0cb4faa76599ee5f77241d3de015b5adce21ba80b2e4942ca0f0ca9c1",
+    "truncated": false,
+    "size_bytes": 63,
+    "redacted_paths": []
+  },
+  "output": {
+    "state": "captured",
+    "value": {
+      "answer": "Teams record tool and model I/O and replay it offline [1]. A 2025 survey argues record/replay should be combined with property checks [3].",
+      "citations": [
+        "https://arxiv.org/abs/2410.01234",
+        "https://example.org/blog/agent-flakiness",
+        "https://example.net/2025/record-replay"
+      ]
+    },
+    "sha256": "sha256:3390f30690383f551331432ae586a8dfb76056a7214c042c724ea3b3cf1c0deb",
+    "truncated": false,
+    "size_bytes": 284,
+    "redacted_paths": []
+  },
+  "error": null,
+  "events": [
+    {
+      "event_id": "ev_c00000000",
+      "parent_id": null,
+      "sequence": 0,
+      "kind": "span",
+      "name": "research-agent",
+      "started_at": "2026-10-28T14:03:11.120000Z",
+      "ended_at": "2026-10-28T14:03:21.014000Z",
+      "duration_ms": 9894.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": null,
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {
+        "agent.version": "0.4.3"
+      }
+    },
+    {
+      "event_id": "ev_c00000001",
+      "parent_id": "ev_c00000000",
+      "sequence": 1,
+      "kind": "value",
+      "name": "now",
+      "started_at": "2026-10-28T14:03:11.121200Z",
+      "ended_at": "2026-10-28T14:03:11.121220Z",
+      "duration_ms": 0.02,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:5c581be5e1ed98deeb48e23e28ef1cb58582d55c891e7b622b7635eed509b3c1",
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "$datetime": "2026-10-28T14:03:11.121200+00:00"
+        },
+        "sha256": "sha256:04c9850bf16f979579647dbe22279d0fc970e430ce613852e918d5810d033e70",
+        "truncated": false,
+        "size_bytes": 48,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_c00000002",
+      "parent_id": "ev_c00000000",
+      "sequence": 2,
+      "kind": "value",
+      "name": "uuid4",
+      "started_at": "2026-10-28T14:03:11.121400Z",
+      "ended_at": "2026-10-28T14:03:11.121410Z",
+      "duration_ms": 0.01,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:70870937802481cc67f5ad0c868c7b4a247a286009bcb1dce58f0ee2d3cadba1",
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": "6f1c2a4e-93b7-4d0e-8b0a-55e2f9d1c3a8",
+        "sha256": "sha256:33594da5ace65d6207e82d138b6966d88e4a3d5c393696acbd3e12b2419a0e84",
+        "truncated": false,
+        "size_bytes": 38,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_c00000003",
+      "parent_id": "ev_c00000000",
+      "sequence": 3,
+      "kind": "span",
+      "name": "plan",
+      "started_at": "2026-10-28T14:03:11.123000Z",
+      "ended_at": "2026-10-28T14:03:12.613000Z",
+      "duration_ms": 1490.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": null,
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_c00000004",
+      "parent_id": "ev_c00000003",
+      "sequence": 4,
+      "kind": "model",
+      "name": "planner",
+      "started_at": "2026-10-28T14:03:11.126000Z",
+      "ended_at": "2026-10-28T14:03:12.598000Z",
+      "duration_ms": 1472.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:3b121913c32c7897ec2fb4eaa70f8621211da489704e7669a5bf8bf78c62cddb",
+      "request": {
+        "state": "hash_only",
+        "value": null,
+        "sha256": "sha256:37af5bfe1de30c385e5d3f2d5f9aa2ab0b91347ea9d584169c49ea94b9cef6fb",
+        "truncated": false,
+        "size_bytes": 200,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "plan": [
+            "Search for recent work on record/replay for agents",
+            "Read the top sources",
+            "Summarize techniques and trade-offs",
+            "Draft an answer with citations"
+          ],
+          "stop_reason": "end_turn"
+        },
+        "sha256": "sha256:d1e9f3e9dc37069fbcf36730ba1ea8dccc63530b61771a373dac0d502da5bb24",
+        "truncated": false,
+        "size_bytes": 182,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": {
+        "input_tokens": 812,
+        "output_tokens": 164,
+        "total_tokens": 976,
+        "cost": {
+          "amount": 0.004896,
+          "currency": "USD",
+          "kind": "measured",
+          "price_source": null
+        }
+      },
+      "attributes": {
+        "provider": "anthropic",
+        "temperature": 0.2
+      }
+    },
+    {
+      "event_id": "ev_c00000005",
+      "parent_id": "ev_c00000000",
+      "sequence": 5,
+      "kind": "span",
+      "name": "gather",
+      "started_at": "2026-10-28T14:03:12.620000Z",
+      "ended_at": "2026-10-28T14:03:14.188000Z",
+      "duration_ms": 1568.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": null,
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_c00000006",
+      "parent_id": "ev_c00000005",
+      "sequence": 6,
+      "kind": "tool",
+      "name": "web_search",
+      "started_at": "2026-10-28T14:03:12.624000Z",
+      "ended_at": "2026-10-28T14:03:13.236000Z",
+      "duration_ms": 612.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:d152ae84b37178f7fc7ab566f3388d68a723acf28ebf9f910b201b70093ceaf5",
+      "request": {
+        "state": "captured",
+        "value": {
+          "query": "deterministic replay LLM agent tests",
+          "top_k": 3,
+          "recency_days": 365
+        },
+        "sha256": "sha256:e95f1e869db0af88a1dd82c28f24747f7515e2dab09794a86491f73463275fcd",
+        "truncated": false,
+        "size_bytes": 77,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": [
+          {
+            "url": "https://arxiv.org/abs/2410.01234",
+            "title": "Replay-based debugging for LLM agents"
+          },
+          {
+            "url": "https://example.org/blog/agent-flakiness",
+            "title": "Why agent tests are flaky"
+          },
+          {
+            "url": "https://example.net/2025/record-replay",
+            "title": "Record/replay, revisited (2025)"
+          }
+        ],
+        "sha256": "sha256:f5c42bbe533cd3acc600fdac6e5435e7ac114c929bdccdbcdca4a66a1affeb21",
+        "truncated": false,
+        "size_bytes": 270,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {
+        "backend": "searx"
+      }
+    },
+    {
+      "event_id": "ev_c00000007",
+      "parent_id": "ev_c00000005",
+      "sequence": 7,
+      "kind": "tool",
+      "name": "fetch_url",
+      "started_at": "2026-10-28T14:03:13.240000Z",
+      "ended_at": "2026-10-28T14:03:13.481000Z",
+      "duration_ms": 241.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:436f0732198c50533ec88ccfd051b2c1fe4867bd5843d04261a211bb124e1537",
+      "request": {
+        "state": "captured",
+        "value": {
+          "url": "https://arxiv.org/abs/2410.01234",
+          "timeout_s": 5
+        },
+        "sha256": "sha256:41b99790305f29985e1ccf14e31ca09b2e38651c4c7160da661a09644da3c480",
+        "truncated": false,
+        "size_bytes": 56,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "status": 200,
+          "text": "Replay-based debugging for LLM agents. Recording every external call and serving it back during tests removes nondeterminism at the boundary."
+        },
+        "sha256": "sha256:328aa827b0dd2da66cc03317ecca01dd3c5221e7b7b61dbae9fa2d40a9fe36b4",
+        "truncated": false,
+        "size_bytes": 165,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {
+        "attempt": 1
+      }
+    },
+    {
+      "event_id": "ev_c00000008",
+      "parent_id": "ev_c00000005",
+      "sequence": 8,
+      "kind": "tool",
+      "name": "fetch_url",
+      "started_at": "2026-10-28T14:03:13.485000Z",
+      "ended_at": "2026-10-28T14:03:13.763000Z",
+      "duration_ms": 278.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:e58cabe151b081c396b37baf329e92d4fa2cbdbb5da4d0ed502d241a98d92240",
+      "request": {
+        "state": "captured",
+        "value": {
+          "url": "https://example.org/blog/agent-flakiness",
+          "timeout_s": 5
+        },
+        "sha256": "sha256:79e1d69906e3eafa8929c90a6479685b80690bbc70c40cb7ccdd1c8eaefec754",
+        "truncated": false,
+        "size_bytes": 64,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "status": 200,
+          "text": "Why agent tests are flaky. Recording every external call and serving it back during tests removes nondeterminism at the boundary."
+        },
+        "sha256": "sha256:d6f611bf57a6747a40cd0efd34cc51af1e3b15c6fac8db4c76c9ba6e1eaa7bf3",
+        "truncated": false,
+        "size_bytes": 153,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {
+        "attempt": 1
+      }
+    },
+    {
+      "event_id": "ev_c00000009",
+      "parent_id": "ev_c00000005",
+      "sequence": 9,
+      "kind": "tool",
+      "name": "fetch_url",
+      "started_at": "2026-10-28T14:03:13.767000Z",
+      "ended_at": "2026-10-28T14:03:14.082000Z",
+      "duration_ms": 315.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:a2aca9d19bfd3eeaaf3df89fc761ccfff1715e87d8fa336086d53682ec283e56",
+      "request": {
+        "state": "captured",
+        "value": {
+          "url": "https://example.net/2025/record-replay",
+          "timeout_s": 5
+        },
+        "sha256": "sha256:b3547bd602b00d7a0c3902531ed5ea2ab1f6ea9e3658f3fd384a53497ca4e61f",
+        "truncated": false,
+        "size_bytes": 62,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "status": 200,
+          "text": "Record/replay, revisited (2025). Recording every external call and serving it back during tests removes nondeterminism at the boundary."
+        },
+        "sha256": "sha256:f571745b44103c2df263dfd3ac0fd5ae3b3008bbce1c8200da61ecf787a46742",
+        "truncated": false,
+        "size_bytes": 159,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {
+        "attempt": 1
+      }
+    },
+    {
+      "event_id": "ev_c0000000a",
+      "parent_id": "ev_c00000005",
+      "sequence": 10,
+      "kind": "tool",
+      "name": "vector_store.upsert",
+      "started_at": "2026-10-28T14:03:14.088000Z",
+      "ended_at": "2026-10-28T14:03:14.184000Z",
+      "duration_ms": 96.0,
+      "status": "ok",
+      "side_effect": true,
+      "call_key": "sha256:3fbc4e98273254258e20d92a3f640c2b1459a7408276601d9935abe5452ffb8b",
+      "request": {
+        "state": "captured",
+        "value": {
+          "collection": "research-notes",
+          "documents": 3,
+          "api_key": "[REDACTED:key:api_key]"
+        },
+        "sha256": "sha256:c20207c60cf7c3e8e0de2854f4ef74cf02b3a571ff83a3497d61d135ef5c642f",
+        "truncated": false,
+        "size_bytes": 80,
+        "redacted_paths": [
+          "$.api_key"
+        ]
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "upserted": 3
+        },
+        "sha256": "sha256:c47f6a68721dafae2ef821687e3d6654eba46bfa247349eff69c95529399adc0",
+        "truncated": false,
+        "size_bytes": 14,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_c0000000b",
+      "parent_id": "ev_c00000000",
+      "sequence": 11,
+      "kind": "span",
+      "name": "analyze",
+      "started_at": "2026-10-28T14:03:14.204000Z",
+      "ended_at": "2026-10-28T14:03:17.514000Z",
+      "duration_ms": 3310.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": null,
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_c0000000c",
+      "parent_id": "ev_c0000000b",
+      "sequence": 12,
+      "kind": "model",
+      "name": "summarize",
+      "started_at": "2026-10-28T14:03:14.208000Z",
+      "ended_at": "2026-10-28T14:03:15.210000Z",
+      "duration_ms": 1002.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:664eb788d4ff0df0f1672f2a1a9b90696ffd7440e5982d9ec791641eac753558",
+      "request": {
+        "state": "hash_only",
+        "value": null,
+        "sha256": "sha256:87c83a3344e95cd480bbba62c95b67d70bbfd8b284e2f1ada11e67d52812344b",
+        "truncated": false,
+        "size_bytes": 188,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "summary": "Replay-based debugging for LLM agents: capture tool and model I/O, then replay it with network access blocked.",
+          "stop_reason": "end_turn"
+        },
+        "sha256": "sha256:d7fd46d7cd6248f752eaed826920965c59bcc7f5437f3444c240293a74d0b930",
+        "truncated": false,
+        "size_bytes": 149,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": {
+        "input_tokens": 2410,
+        "output_tokens": 288,
+        "total_tokens": 2698,
+        "cost": {
+          "amount": 0.01155,
+          "currency": "USD",
+          "kind": "measured",
+          "price_source": null
+        }
+      },
+      "attributes": {
+        "provider": "anthropic",
+        "chunk": 0
+      }
+    },
+    {
+      "event_id": "ev_c0000000d",
+      "parent_id": "ev_c0000000b",
+      "sequence": 13,
+      "kind": "model",
+      "name": "summarize",
+      "started_at": "2026-10-28T14:03:15.218000Z",
+      "ended_at": "2026-10-28T14:03:16.220000Z",
+      "duration_ms": 1002.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:47cddd16eb84bdbb1c2381f935fa779cef9166b2afc140fdb7d25d4df598f714",
+      "request": {
+        "state": "hash_only",
+        "value": null,
+        "sha256": "sha256:2b68e0aa782f20d12a7594b9a56bdc7c187e06e6949cdb0c31b57d0708ea540d",
+        "truncated": false,
+        "size_bytes": 176,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "summary": "Why agent tests are flaky: capture tool and model I/O, then replay it with network access blocked.",
+          "stop_reason": "end_turn"
+        },
+        "sha256": "sha256:8572395be4673ece01b848b86da8d71be3c51ea10d58e7acf66b2ea599457d1a",
+        "truncated": false,
+        "size_bytes": 137,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": {
+        "input_tokens": 2195,
+        "output_tokens": 251,
+        "total_tokens": 2446,
+        "cost": {
+          "amount": 0.01035,
+          "currency": "USD",
+          "kind": "measured",
+          "price_source": null
+        }
+      },
+      "attributes": {
+        "provider": "anthropic",
+        "chunk": 1
+      }
+    },
+    {
+      "event_id": "ev_c0000000e",
+      "parent_id": "ev_c0000000b",
+      "sequence": 14,
+      "kind": "model",
+      "name": "summarize",
+      "started_at": "2026-10-28T14:03:16.228000Z",
+      "ended_at": "2026-10-28T14:03:17.230000Z",
+      "duration_ms": 1002.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:3e22a552a7fd707c7e8a70c621164756ad61ab4621fbd6111afadbfca9b58316",
+      "request": {
+        "state": "hash_only",
+        "value": null,
+        "sha256": "sha256:77dbbb2477a8839b711ae258659dcf221c47c39ba4d11c48ef3f25b9ce47d0c2",
+        "truncated": false,
+        "size_bytes": 182,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "summary": "Record/replay, revisited (2025): capture tool and model I/O, then replay it with network access blocked.",
+          "stop_reason": "end_turn"
+        },
+        "sha256": "sha256:b30b2e5b60240aa7178a127554ead69c34466d6fe693c30a313b014ef45dc21b",
+        "truncated": false,
+        "size_bytes": 143,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": {
+        "input_tokens": 2630,
+        "output_tokens": 302,
+        "total_tokens": 2932,
+        "cost": {
+          "amount": 0.01242,
+          "currency": "USD",
+          "kind": "measured",
+          "price_source": null
+        }
+      },
+      "attributes": {
+        "provider": "anthropic",
+        "chunk": 2
+      }
+    },
+    {
+      "event_id": "ev_c0000000f",
+      "parent_id": "ev_c0000000b",
+      "sequence": 15,
+      "kind": "tool",
+      "name": "extract_citations",
+      "started_at": "2026-10-28T14:03:17.244000Z",
+      "ended_at": "2026-10-28T14:03:17.275000Z",
+      "duration_ms": 31.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:c74feb34d90b6d2d37fdfa2784967360eaf1f40a38a0840949f0cbc8acb8671b",
+      "request": {
+        "state": "captured",
+        "value": {
+          "urls": [
+            "https://arxiv.org/abs/2410.01234",
+            "https://example.org/blog/agent-flakiness",
+            "https://example.net/2025/record-replay"
+          ]
+        },
+        "sha256": "sha256:ee1f4896f8c921b5d606cdfc33ad3de5627329b0d10270b060e3957cc8187b4d",
+        "truncated": false,
+        "size_bytes": 129,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": [
+          {
+            "n": 1,
+            "url": "https://arxiv.org/abs/2410.01234"
+          },
+          {
+            "n": 2,
+            "url": "https://example.org/blog/agent-flakiness"
+          },
+          {
+            "n": 3,
+            "url": "https://example.net/2025/record-replay"
+          }
+        ],
+        "sha256": "sha256:40d3e816b0a57f8529f6463f6b466e691db6baedb892dbeaa2ee84329446a6e3",
+        "truncated": false,
+        "size_bytes": 162,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_c00000010",
+      "parent_id": "ev_c0000000b",
+      "sequence": 16,
+      "kind": "value",
+      "name": "random",
+      "started_at": "2026-10-28T14:03:17.279000Z",
+      "ended_at": "2026-10-28T14:03:17.279010Z",
+      "duration_ms": 0.01,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:7a47a95e2e2bd8a03adbb6cde65b961031893f1d83ba4372cc018b76644ce72a",
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": 0.4183,
+        "sha256": "sha256:9655312a4c085ea72fa19bd43550e256b41eb06ae214a4b06637c5b7dac92d1e",
+        "truncated": false,
+        "size_bytes": 6,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_c00000011",
+      "parent_id": "ev_c00000000",
+      "sequence": 17,
+      "kind": "span",
+      "name": "draft",
+      "started_at": "2026-10-28T14:03:17.524000Z",
+      "ended_at": "2026-10-28T14:03:19.464000Z",
+      "duration_ms": 1940.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": null,
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_c00000012",
+      "parent_id": "ev_c00000011",
+      "sequence": 18,
+      "kind": "model",
+      "name": "writer",
+      "started_at": "2026-10-28T14:03:17.527000Z",
+      "ended_at": "2026-10-28T14:03:19.229000Z",
+      "duration_ms": 1702.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:3f64c8185828cd5b0677d03cd8d1138b71f8e4726c4889f8e714344ff4a68d2f",
+      "request": {
+        "state": "hash_only",
+        "value": null,
+        "sha256": "sha256:098c3a393edb2b0b5adaab999c86c2b221ee1623a2e84890e8b956a97879cd62",
+        "truncated": false,
+        "size_bytes": 121,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "text": "Teams record tool and model I/O and replay it offline [1]. A 2025 survey argues record/replay should be combined with property checks [3].",
+          "stop_reason": "end_turn"
+        },
+        "sha256": "sha256:78f2e643c1f0e828eb14e461304edddae7df3154779aea82631af8bbef3e24ac",
+        "truncated": false,
+        "size_bytes": 174,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": {
+        "input_tokens": 3920,
+        "output_tokens": 371,
+        "total_tokens": 4291,
+        "cost": {
+          "amount": 0.017325,
+          "currency": "USD",
+          "kind": "estimated",
+          "price_source": "anthropic.com/pricing (2026-10-01)"
+        }
+      },
+      "attributes": {
+        "provider": "anthropic"
+      }
+    },
+    {
+      "event_id": "ev_c00000013",
+      "parent_id": "ev_c00000011",
+      "sequence": 19,
+      "kind": "tool",
+      "name": "calculator",
+      "started_at": "2026-10-28T14:03:19.236000Z",
+      "ended_at": "2026-10-28T14:03:19.238000Z",
+      "duration_ms": 2.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:9cd12cd1c4227b85aba8599324405e60a181162c61925ce890c2b48229c61ff6",
+      "request": {
+        "state": "captured",
+        "value": {
+          "expression": "3 / 3 * 100"
+        },
+        "sha256": "sha256:3a736f988d74a90ece8a3265219d79d32698ab59282f7c3d4dd34bd7f9518643",
+        "truncated": false,
+        "size_bytes": 28,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": 100.0,
+        "sha256": "sha256:43b87f618caab482ebe4976c92bcd6ad308b48055f1c27b4c574f3e31d7683e0",
+        "truncated": false,
+        "size_bytes": 5,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_c00000014",
+      "parent_id": "ev_c00000011",
+      "sequence": 20,
+      "kind": "value",
+      "name": "now",
+      "started_at": "2026-10-28T14:03:19.240000Z",
+      "ended_at": "2026-10-28T14:03:19.240020Z",
+      "duration_ms": 0.02,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:5c581be5e1ed98deeb48e23e28ef1cb58582d55c891e7b622b7635eed509b3c1",
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "$datetime": "2026-10-28T14:03:21.612000+00:00"
+        },
+        "sha256": "sha256:97e4b52fb6e50e8794d8d84570cf090402e0fbd38f882cc7e758cb5a77118991",
+        "truncated": false,
+        "size_bytes": 48,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_c00000015",
+      "parent_id": "ev_c00000000",
+      "sequence": 21,
+      "kind": "span",
+      "name": "review",
+      "started_at": "2026-10-28T14:03:19.474000Z",
+      "ended_at": "2026-10-28T14:03:20.994000Z",
+      "duration_ms": 1520.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": null,
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_c00000016",
+      "parent_id": "ev_c00000015",
+      "sequence": 22,
+      "kind": "model",
+      "name": "critic",
+      "started_at": "2026-10-28T14:03:19.476000Z",
+      "ended_at": "2026-10-28T14:03:20.287000Z",
+      "duration_ms": 811.0,
+      "status": "ok",
+      "side_effect": false,
+      "call_key": "sha256:857832839218b88cc9c14537b23f445c42b07bdfe14a745c69d93bdeaff2f59a",
+      "request": {
+        "state": "not_captured",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "verdict": "pass",
+          "issues": []
+        },
+        "sha256": "sha256:7883b50fade13543994fdadec69b558d9dfabb0dc4ea7e66bd40976a05d6810b",
+        "truncated": false,
+        "size_bytes": 30,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": {
+        "input_tokens": 1240,
+        "output_tokens": 58,
+        "total_tokens": 1298,
+        "cost": {
+          "amount": 0.00459,
+          "currency": "USD",
+          "kind": "estimated",
+          "price_source": "anthropic.com/pricing (2026-10-01)"
+        }
+      },
+      "attributes": {
+        "provider": "anthropic"
+      }
+    },
+    {
+      "event_id": "ev_c00000017",
+      "parent_id": "ev_c00000015",
+      "sequence": 23,
+      "kind": "tool",
+      "name": "save_report",
+      "started_at": "2026-10-28T14:03:20.294000Z",
+      "ended_at": "2026-10-28T14:03:20.338000Z",
+      "duration_ms": 44.0,
+      "status": "ok",
+      "side_effect": true,
+      "call_key": "sha256:bac64d5480d3640eb36693a1f5301acc3bd7a7961a745ae4d6a4f55474251e59",
+      "request": {
+        "state": "captured",
+        "value": {
+          "path": "reports/agent-testing.md",
+          "bytes": 138
+        },
+        "sha256": "sha256:57ae4a3eda812724f728ad59baf29cb684b349c7da0c2f85d080cad5e6c6fd27",
+        "truncated": false,
+        "size_bytes": 47,
+        "redacted_paths": []
+      },
+      "response": {
+        "state": "captured",
+        "value": {
+          "written": true
+        },
+        "sha256": "sha256:8af2b1089bfcc644a5b2fc46c42e330d7bae14eae8f187acf40e5347638e8ee8",
+        "truncated": false,
+        "size_bytes": 16,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    },
+    {
+      "event_id": "ev_c00000018",
+      "parent_id": "ev_c00000015",
+      "sequence": 24,
+      "kind": "tool",
+      "name": "notify",
+      "started_at": "2026-10-28T14:03:20.344000Z",
+      "ended_at": "2026-10-28T14:03:20.956000Z",
+      "duration_ms": 612.0,
+      "status": "ok",
+      "side_effect": true,
+      "call_key": "sha256:4bd346b858cfb309edf6a5dc6b9a98fad6b6bcf6cfd8543ac97452520e43e181",
+      "request": {
+        "state": "captured",
+        "value": {
+          "to": "[REDACTED:email]",
+          "subject": "Research report ready",
+          "authorization": "[REDACTED:key:authorization]"
+        },
+        "sha256": "sha256:28ccd48d0e34592c54ec0e49df718bac64f355866c35b4c0f3b3d905d6dd2983",
+        "truncated": false,
+        "size_bytes": 106,
+        "redacted_paths": [
+          "$.to",
+          "$.authorization"
+        ]
+      },
+      "response": {
+        "state": "redacted",
+        "value": null,
+        "sha256": null,
+        "truncated": false,
+        "size_bytes": null,
+        "redacted_paths": []
+      },
+      "error": null,
+      "usage": null,
+      "attributes": {}
+    }
+  ],
+  "metadata": {
+    "git_sha": "e07b3d5",
+    "branch": "main"
+  },
+  "warnings": []
+}

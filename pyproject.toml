@@ -1,0 +1,91 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "traceon-replay"
+dynamic = ["version"]
+description = "Deterministic replay and time-travel debugging for AI agents."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.10"
+authors = [{ name = "Traceon contributors" }]
+keywords = ["ai-agents", "llm", "replay", "debugging", "regression-testing", "observability", "opentelemetry", "langfuse", "pytest"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Framework :: Pytest",
+  "Topic :: Software Development :: Debuggers",
+  "Topic :: Software Development :: Testing",
+  "Typing :: Typed",
+]
+dependencies = [
+  "pydantic>=2.6,<3",
+  "click>=8.1,<9",
+  "rich>=13.7",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-asyncio>=0.23",
+  "ruff>=0.6",
+  "mypy>=1.10",
+]
+
+[project.urls]
+Homepage = "https://github.com/YourAnonELF/traceon-replay"
+Documentation = "https://github.com/YourAnonELF/traceon-replay/tree/main/docs"
+Issues = "https://github.com/YourAnonELF/traceon-replay/issues"
+
+[project.scripts]
+traceon = "traceon.cli:main"
+
+[project.entry-points.pytest11]
+traceon = "traceon.pytest_plugin"
+
+[tool.hatch.version]
+path = "src/traceon/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/traceon"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/traceon", "schemas", "README.md", "LICENSE", "NOTICE"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+addopts = "-ra --strict-markers"
+markers = [
+  "traceon: replay a recorded Traceon fixture for this test",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+# Names are re-exported lazily via PEP 562 __getattr__; the TYPE_CHECKING imports exist for type checkers.
+"src/traceon/__init__.py" = ["F401"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+packages = ["traceon"]
+mypy_path = "src"
+plugins = ["pydantic.mypy"]
