@@ -17,7 +17,9 @@ def test_diff_divergent(invoke, fixtures_dir):
     assert '    expected  "weather in paris"' in out
     assert '    actual    "weather in Paris"' in out
     assert "✗ not equivalent  2 divergences" in out
-    assert str(fixtures_dir["base"]) in out  # labels are the file paths
+    # Labels are the file paths. Long temp paths (macOS, Windows CI runners) are
+    # soft-wrapped by the console, so compare with whitespace removed.
+    assert "".join(str(fixtures_dir["base"]).split()) in "".join(out.split())
 
 
 def test_diff_ignore(invoke, fixtures_dir, fxf, tmp_path):
