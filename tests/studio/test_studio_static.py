@@ -139,3 +139,27 @@ def test_brand_svgs_are_self_contained(name: str) -> None:
     assert text.startswith('<svg xmlns="http://www.w3.org/2000/svg"')
     assert "<script" not in text and "<style" not in text and "href=" not in text
     assert "<title>" in text
+
+
+def test_static_files_added_after_start_are_served(tmp_path) -> None:
+    """An ES module added by an in-place upgrade must not 404 (the page would never boot)."""
+    from traceon.studio.server import FixtureRegistry, StudioApp
+
+    static = tmp_path / "static"
+    static.mkdir()
+    (static / "index.html").write_text("<!doctype html><title>x</title>", encoding="utf-8")
+    app = StudioApp(FixtureRegistry.scan([]), static_root=static)
+    assert "late.js" not in app.static_names
+    (static / "late.js").write_text("export const x = 1;", encoding="utf-8")
+    assert app.handle("GET", "/static/late.js").status == 200
+    assert app.handle("GET", "/static/..%2Fsecrets.txt").status == 404
+    assert app.handle("GET", "/static/missing.js").status == 404
+
+
+def test_boot_watchdog_is_loaded_before_the_app() -> None:
+    from importlib import resources
+
+    static = resources.files("traceon.studio").joinpath("static")
+    html = static.joinpath("index.html").read_text(encoding="utf-8")
+    assert '<script src="/static/boot.js" defer></script>' in html
+    assert "data-booted" in static.joinpath("app.js").read_text(encoding="utf-8")

@@ -9,6 +9,9 @@ import { FixtureModel, totals } from "./model.js";
 import { Player } from "./playback.js";
 import { Waterfall } from "./waterfall.js";
 
+// Every module imported: tell the boot watchdog (boot.js) the shell is alive.
+document.documentElement.setAttribute("data-booted", "1");
+
 const $ = (id) => document.getElementById(id);
 const els = {
   app: $("app"),

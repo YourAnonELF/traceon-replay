@@ -365,17 +365,28 @@ class StudioApp:
     ) -> None:
         self.registry = registry
         self._compare = compare
-        root = static_root if static_root is not None else _static_root()
+        self._static_root = static_root if static_root is not None else _static_root()
         self._static: dict[str, Traversable | Path] = {}
-        for item in root.iterdir():
-            name = item.name
-            suffix = Path(name).suffix.lower()
-            if item.is_file() and _STATIC_NAME.match(name) and suffix in _CONTENT_TYPES:
-                self._static[name] = item
+        self._scan_static()
         #: Lowercased ``Host`` header values accepted; ``None`` disables the check.
         self.allowed_hosts = (
             frozenset(h.lower() for h in allowed_hosts) if allowed_hosts is not None else None
         )
+
+    def _scan_static(self) -> None:
+        """(Re)build the static allowlist from the flat files in ``static/``.
+
+        Rescanned on a miss so assets added by an in-place upgrade are served without
+        restarting Studio (a 404 on one ES module would stop the page from booting).
+        Request paths are never mapped onto the filesystem.
+        """
+        found: dict[str, Traversable | Path] = {}
+        for item in self._static_root.iterdir():
+            name = item.name
+            suffix = Path(name).suffix.lower()
+            if item.is_file() and _STATIC_NAME.match(name) and suffix in _CONTENT_TYPES:
+                found[name] = item
+        self._static = found
 
     @property
     def static_names(self) -> frozenset[str]:
@@ -425,7 +436,12 @@ class StudioApp:
 
     # Routes ---------------------------------------------------------------
     def _static_file(self, name: str) -> Response:
-        item = self._static.get(name) if _STATIC_NAME.match(name) else None
+        if not _STATIC_NAME.match(name):
+            return _error(HTTPStatus.NOT_FOUND, "not found")
+        item = self._static.get(name)
+        if item is None:
+            self._scan_static()
+            item = self._static.get(name)
         if item is None:
             return _error(HTTPStatus.NOT_FOUND, "not found")
         content_type = _CONTENT_TYPES[Path(name).suffix.lower()]
