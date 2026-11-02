@@ -1,0 +1,10 @@
+# Normalize line endings: text files are stored and checked out with LF on every
+# platform (avoids CRLF churn and "LF will be replaced by CRLF" warnings on Windows).
+* text=auto eol=lf
+
+# Binary assets
+*.png binary
+*.gif binary
+*.mp4 binary
+*.ico binary
+*.woff2 binary
