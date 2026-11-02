@@ -21,8 +21,8 @@ jobs:
     name: Lint and type check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: astral-sh/setup-uv@v6
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v7
         with:
           python-version: "3.12"
           enable-cache: true
@@ -51,8 +51,8 @@ jobs:
       run:
         shell: bash
     steps:
-      - uses: actions/checkout@v5
-      - uses: astral-sh/setup-uv@v6
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v7
         with:
           python-version: ${{ matrix.python }}
           enable-cache: true
@@ -82,8 +82,8 @@ jobs:
     name: Build distributions
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: astral-sh/setup-uv@v6
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v7
         with:
           python-version: "3.12"
       - name: Build sdist and wheel
@@ -96,7 +96,7 @@ jobs:
           # The pytest plugin is only loaded by pytest itself, so it is not imported here.
           /tmp/wheel-env/bin/python -c "import traceon, traceon.sdk, traceon.replay, traceon.diff, traceon.cli, traceon.studio.server, traceon.integrations; print(traceon.__version__)"
           /tmp/wheel-env/bin/python -c "import importlib.resources as r; assert r.files('traceon.studio').joinpath('static/index.html').is_file()"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: dist
           path: dist/
